@@ -3,9 +3,11 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { RxAvatar } from 'react-icons/rx';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const Header = () => {
 	const [isScrolled, setIsScorlled] = useState(false);
+	const { user } = useAuth();
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 0) {
