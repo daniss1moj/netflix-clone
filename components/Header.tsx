@@ -4,6 +4,7 @@ import { RxAvatar } from 'react-icons/rx';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import BasicMenu from './BasicMenu';
 
 const Header = () => {
 	const [isScrolled, setIsScorlled] = useState(false);
@@ -28,6 +29,7 @@ const Header = () => {
 					height={100}
 					className="cursor-pointer object-contain hover:scale-125"
 				/>
+				<BasicMenu />
 				<ul className="hidden space-x-4 md:flex">
 					<li className="headerLink">Home</li>
 					<li className="headerLink">TV Shows</li>

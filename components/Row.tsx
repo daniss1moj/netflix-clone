@@ -1,10 +1,11 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { DocumentData } from 'firebase/firestore';
 import { useRef, useState } from 'react';
 import { Movie } from '../types';
 import Thumbnail from './Thumbnail';
 interface Props {
 	title: string;
-	movies: Movie[];
+	movies: Movie[] | DocumentData[];
 }
 
 type Direction = 'left' | 'right';

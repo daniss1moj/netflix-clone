@@ -13,7 +13,7 @@ interface Inputs {
 }
 
 const Login = () => {
-	const [login, setLogin] = useState(false);
+	const [login, setLogin] = useState(true);
 	const { signIn, signUp } = useAuth();
 	const {
 		register,
@@ -27,6 +27,13 @@ const Login = () => {
 			await signUp(email, password);
 		}
 	};
+	const testUserLogin = async () => {
+		await signIn(
+			`${process.env.NEXT_PUBLIC_TEST_USER_EMAIL}`,
+			`${process.env.NEXT_PUBLIC_TEST_USER_PASSWORD}`,
+		);
+	};
+
 	return (
 		<div
 			className="relative flex h-screen w-screen flex-col bg-black md:items-center
@@ -52,7 +59,7 @@ const Login = () => {
 			<form
 				className="relative mt-24 flex flex-col gap-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-xl w-[100%] md:px-14"
 				onSubmit={handleSubmit(onSubmit)}>
-				<h1 className="text-4xl font-semibold">Sign in</h1>
+				<h1 className="text-4xl font-semibold">{login ? 'Sign In' : 'Sign Up'}</h1>
 				<div className="flex flex-col gap-y-4">
 					<label>
 						<input
@@ -85,17 +92,34 @@ const Login = () => {
 						)}
 					</label>
 				</div>
+				<button type="submit" className="w-full rounded bg-[#e50914] py-3 font-semibold">
+					{login ? 'Sign In' : 'Sign Up'}
+				</button>
 				<button
 					type="submit"
 					className="w-full rounded bg-[#e50914] py-3 font-semibold"
-					onClick={() => setLogin(true)}>
-					Sign In
+					onClick={testUserLogin}>
+					Test User
 				</button>
 				<div className="flex items-center space-x-4">
-					<p className="inline-block text-[gray]">New on Netflix?</p>
-					<button className="text-white hover:underline" onClick={() => setLogin(false)}>
-						Sign up now
-					</button>
+					<p className="inline-block text-[gray]">
+						{login ? 'New on Netflix?' : 'Already registred?'}
+					</p>
+					{!login ? (
+						<button
+							className="text-white hover:underline"
+							onClick={() => setLogin(true)}
+							type="button">
+							Sign in now
+						</button>
+					) : (
+						<button
+							className="text-white hover:underline"
+							onClick={() => setLogin(false)}
+							type="button">
+							Sign up now
+						</button>
+					)}
 				</div>
 			</form>
 		</div>
