@@ -1,4 +1,4 @@
-# Movie app
+# Movie app (Netflix clone)
 
 Next js app with Tailwind CSS styles and TypeScript. Implemented payments 
 with Stripe API.  The TMDb API is used to request a list of movies. Recoil js is used for state 
