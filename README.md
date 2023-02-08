@@ -18,6 +18,7 @@ management.
     <li><a href="https://react-hot-toast.com/">React Hot Toast</a></li>
     <li><a href="https://react-hook-form.com/">React Hook Form</a></li>
     <li><a href="https://www.npmjs.com/package/react-player">React Player</a></li>
+    <li><a href="https://developers.themoviedb.org/3">TMDb API</a></li>
   </ul>
 
 <br />
