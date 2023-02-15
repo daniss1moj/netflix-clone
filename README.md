@@ -24,4 +24,4 @@ management.
 <br />
 
 ## 💥Demo (Deployed on Vercel)
-https://netflix-clone-liard-alpha.vercel.app/login
+https://netflix-clone-git-main-daniss1moj.vercel.app/login
